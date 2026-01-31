@@ -1,8 +1,8 @@
-
 /**
  * Projects Section
  * Design: Minimalisme Technologique - Cards avec images et descriptions
  * Couleurs: Noir/Blanc/Bleu électrique
+ * Classement: Portfolio, Chatbot bancaire, Faso culture, Blockchain
  */
 
 import { ExternalLink, Github } from 'lucide-react';
@@ -10,13 +10,22 @@ import { ExternalLink, Github } from 'lucide-react';
 export default function Projects() {
   const projects = [
     {
+      title: 'Portfolio Personnel',
+      period: 'Janvier 2026',
+      company: 'Projet Personnel',
+      description:
+        'Portfolio professionnel moderne et minimaliste présentant mes compétences, projets et expériences. Interface épurée avec design technologique, navigation fluide et responsive. Intégration de fonctionnalités interactives et téléchargement de CV directement depuis le site.',
+      technologies: ['React 19', 'TypeScript', 'Tailwind CSS 4', 'Vite', 'shadcn/ui'],
+      link: 'https://legenie-portfolio.vercel.app',
+      github: 'https://github.com/LEGENIE27/mon_portfolio',
+    },
+    {
       title: 'Chatbot Bancaire Intelligent',
       period: 'Septembre - Décembre 2025',
       company: 'Université Virtuelle du Burkina Faso',
       description:
         'Assistant bancaire intelligent adapté au contexte burkinabé avec détection de fraude avancée. Interface conversationnelle en français permettant la consultation de solde, gestion de carte bancaire et alertes de sécurité. Montants en FCFA et numéros burkinabés pour expérience utilisateur contextuelle.',
       technologies: ['Flask', 'MongoDB', 'spaCy', 'NLP', 'Python', 'JavaScript'],
-      relevance: 'Services Bancaires - Chatbot de support client et détection de fraude',
       link: '#',
       github: 'https://github.com/LEGENIE27/chatbot_bancaire',
     },
@@ -27,7 +36,6 @@ export default function Projects() {
       description:
         'Application mobile complète avec Flutter et Django. Gestion des données culturelles via API REST. Interface utilisateur intuitive et performante.',
       technologies: ['Flutter', 'Dart', 'Django', 'REST API', 'UI/UX'],
-      relevance: 'Relation Client Digitale - Produits innovants',
       link: '',
       github: 'https://github.com/LEGENIE27/Faso_Culture',
     },
@@ -38,9 +46,8 @@ export default function Projects() {
       description:
         'Application web avec Smart Contract ERC-721 sur testnet Ethereum. Intégration MetaMask et Web3.js. Exploration de la technologie blockchain.',
       technologies: ['Solidity', 'Web3.js', 'Ethereum', 'NFT', 'MetaMask'],
-      relevance: 'Sécurité et Innovation - Contrats intelligents',
       link: 'https://receptive-song.surge.sh/',
-      github: ' https://github.com/LEGENIE27/Sept',
+      github: 'https://github.com/LEGENIE27/Sept',
     },
   ];
 
@@ -83,13 +90,6 @@ export default function Projects() {
                   {/* Description */}
                   <p className="text-gray-700 mb-4 leading-relaxed">{project.description}</p>
 
-                  {/* Relevance */}
-                  <div className="mb-4 p-3 bg-cyan-50 border border-cyan-200 rounded-sm">
-                    <p className="text-sm text-cyan-900">
-                      <span className="font-semibold">Pertinence Vista:</span> {project.relevance}
-                    </p>
-                  </div>
-
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.technologies.map((tech) => (
@@ -104,7 +104,7 @@ export default function Projects() {
 
                   {/* Links */}
                   <div className="flex gap-4">
-                    {project.link !== '#' && (
+                    {project.link !== '#' && project.link !== '' && (
                       <a
                         href={project.link}
                         target="_blank"
@@ -115,7 +115,7 @@ export default function Projects() {
                         <ExternalLink size={16} />
                       </a>
                     )}
-                    {project.github !== '#' && (
+                    {project.github !== '#' && project.github !== '' && (
                       <a
                         href={project.github}
                         target="_blank"
